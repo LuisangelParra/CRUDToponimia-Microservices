@@ -1,6 +1,6 @@
 import requests
 
-url = "http://localhost:7071/api/updateperson"
+url = "https://fa-up-lfaria.azurewebsites.net/api/updateperson"
 data = {
     "typeid": "1",
     "id": "12346",
