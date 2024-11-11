@@ -3,7 +3,6 @@
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     "FUNCTIONS_WORKER_RUNTIME": "python",
-    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing",
-    "AZURE_STORAGE_CONNECTION_STRING": "DefaultEndpointsProtocol=https;AccountName=sa202431lfaria;AccountKey=bL6re7p3ClWjR/Ct4gnxbWyzMRaeJe0mMIdReaD1RRpFEvVY3ghX0X+a6ObAiGvPQm1cpseVQ6/Q+AStkyf28g==;EndpointSuffix=core.windows.net"
+    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing"
   }
 }
