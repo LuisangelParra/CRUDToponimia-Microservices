@@ -1,7 +1,7 @@
 import os
 import sys
 from azure.data.tables import TableServiceClient, TableEntity
-import logging
+import datetime
 
 log_table_name = "logs"
 
@@ -27,7 +27,11 @@ class LogService:
             # Add a timestamp to the log entry
             log_entity = TableEntity()
             log_entity["PartitionKey"] = "log"
-            log_entity["RowKey"] = log_data["id"]
+            
+            #row key
+            log_entity["RowKey"] = log_data["id"]+"-"+str(datetime.datetime.now())
+
+            log_entity["id"] = log_data["id"]
             log_entity["typeid"] = log_data["typeid"]
             log_entity["action"] = log_data["action"]
             log_entity["details"] = log_data["details"]
@@ -44,7 +48,7 @@ class LogService:
             if "typeid" in filters and filters["typeid"] is not None:
                 filter_clauses.append(f"typeid eq '{filters['typeid']}'")
             if "id" in filters and filters["id"] is not None:
-                filter_clauses.append(f"RowKey eq '{filters['id']}'")
+                filter_clauses.append(f"id eq '{filters['id']}'")
             if "from_date" in filters and filters["from_date"] is not None:
                 filter_clauses.append(f"Timestamp ge datetime'{filters['from_date']}'")
             if "to_date" in filters and filters["to_date"] is not None:
